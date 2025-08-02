@@ -1,22 +1,16 @@
 FROM python:3.11-alpine
 
-ENV APP_USER flaskuser
+RUN mkdir /var/flaskapp
 
-ENV APP_DIRECTORY /var/flaskapp
+RUN  adduser -h /var/flaskapp -s /bin/sh -D -H flaskuser
 
-RUN mkdir $APP_DIRECTORY
+WORKDIR /var/flaskapp
 
-RUN  adduser -h $APP_DIRECTORY -s /bin/sh -D -H $APP_USER
-
-WORKDIR $APP_DIRECTORY
-
-COPY ./code/flaskapp-code.tar  .
-
-RUN tar -xvf flaskapp-code.tar 
+COPY ./code/ .
 
 RUN pip install -r requirements.txt
 
-RUN chown -R $APP_USER:$APP_USER $APP_DIRECTORY
+RUN chown -R flaskuser:flaskuser /var/flaskapp
 
 EXPOSE 8080
 
