@@ -20,7 +20,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build Docker image
-        run: docker build -t srusree/ipgeoloc-app:latest .
+        run: docker build -t srusree/frontend-ipgeoloc:latest .
 
       - name: Push Docker image
-        run: docker push srusree/ipgeoloc-app:latest
+        run: docker push srusree/frontend-ipgeoloc:latest
