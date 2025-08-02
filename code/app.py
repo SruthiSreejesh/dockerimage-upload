@@ -53,6 +53,6 @@ if __name__ == "__main__":
     
   api_server = os.getenv("API_SERVER",None)
   api_server_port = os.getenv("API_SERVER_PORT",None)
-  api_path = os.getenv("API_PATH",None)
+  api_path = os.getenv("API_PATH","")
   app_port = os.getenv('APP_PORT',"8080") 
   app.run(port=app_port,host="0.0.0.0",debug=True)
