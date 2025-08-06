@@ -24,10 +24,10 @@ jobs:
 
       - name: Build Docker image with Git tag
         run: |
-          docker build -t srusree/api-ipgeoloc:latest -t srusree/api-ipgeoloc:${{ env.TAG }} .
+          docker build -t srusree/frontend-ipgeoloc:latest -t srusree/frontend-ipgeoloc:${{ env.TAG }} .
 
       - name: Push Docker images
         run: |
-          docker push srusree/api-ipgeoloc:latest
-          docker push srusree/api-ipgeoloc:${{ env.TAG }}
+          docker push srusree/frontend-ipgeoloc:latest
+          docker push srusree/frontend-ipgeoloc:${{ env.TAG }}
 
